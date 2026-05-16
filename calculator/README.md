@@ -1,6 +1,6 @@
 # Calculator
 
-This is a simple calculator application that provides both a command-line interface and a REST API for basic arithmetic operations.
+This is a simple calculator application that provides both a command-line interface and a REST API for basic arithmetic operations. It has been extended, using the agent, from the sample command line application provided as part of the [boot.dev course](https://www.boot.dev/courses/build-ai-agent-python).
 
 ## Project Structure
 
