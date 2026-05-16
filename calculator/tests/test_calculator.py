@@ -1,7 +1,13 @@
 # tests/test_calculator.py
 
 import unittest
-from calculator.pkg.calculator import Calculator
+import sys
+import os
+
+# Add the parent directory (the root of the project) to sys.path
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+
+from calculator.api import Calculator
 import random
 
 class TestCalculator(unittest.TestCase):
@@ -127,7 +133,7 @@ class TestCalculator(unittest.TestCase):
         self.assertTrue(self.calculator.evaluate("10 / 2 + 1 = 6"))
         self.assertTrue(self.calculator.evaluate("  2 +2   = 4")) # Test case for the reported issue
 
-    def test_comparison_operator_errors(self):\
+    def test_comparison_operator_errors(self):
         with self.assertRaises(ValueError):\
             self.calculator.evaluate("2 =")
         with self.assertRaises(ValueError):\
