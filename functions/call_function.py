@@ -14,7 +14,7 @@ function_map = {
 }
 
 
-def call_function(function_call: types.FunctionCall, verbose:bool=False):
+def call_function(working_dir, function_call: types.FunctionCall, verbose:bool=False):
     if verbose:
         print(f"Calling function: {function_call.name}({function_call.args})")
     else:
@@ -34,7 +34,7 @@ def call_function(function_call: types.FunctionCall, verbose:bool=False):
         )
     
     args = dict(function_call.args) if function_call.args else {}
-    args["working_directory"] = "./calculator"
+    args["working_directory"] = working_dir
 
     function_result = function_map[function_name](**args)
 
