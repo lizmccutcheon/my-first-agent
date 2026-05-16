@@ -1,13 +1,13 @@
 from fastapi import FastAPI, HTTPException
 from fastapi.responses import FileResponse
-from pkg.calculator import Calculator
+from calculator.pkg.calculator import Calculator
 
 app = FastAPI()
 calculator = Calculator()
 
 @app.get("/")
 async def root():
-    return FileResponse("index.html")
+    return FileResponse("static/index.html")
 
 @app.get("/health")
 async def health_check():

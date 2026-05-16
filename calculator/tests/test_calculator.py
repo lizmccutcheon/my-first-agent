@@ -1,7 +1,7 @@
-# calculator/tests.py
+# tests/test_calculator.py
 
 import unittest
-from pkg.calculator import Calculator
+from calculator.pkg.calculator import Calculator
 import random
 
 class TestCalculator(unittest.TestCase):
@@ -79,29 +79,29 @@ class TestCalculator(unittest.TestCase):
         self.assertAlmostEqual(self.calculator.evaluate("-1.0 / 2.0"), -0.5)
 
     def test_errors(self):
-        with self.assertRaises(ValueError):
+        with self.assertRaises(ValueError):\
             self.calculator.evaluate("1 +")
-        with self.assertRaises(ValueError):
+        with self.assertRaises(ValueError):\
             self.calculator.evaluate("1 1")
-        with self.assertRaises(ValueError):
+        with self.assertRaises(ValueError):\
             self.calculator.evaluate("(1 + 2")
-        with self.assertRaises(ValueError):
+        with self.assertRaises(ValueError):\
             self.calculator.evaluate("1 / 0")
-        with self.assertRaises(ValueError):
+        with self.assertRaises(ValueError):\
             self.calculator.evaluate("abc")
-        with self.assertRaises(ValueError):
+        with self.assertRaises(ValueError):\
             self.calculator.evaluate("")
-        with self.assertRaises(ValueError):
+        with self.assertRaises(ValueError):\
             self.calculator.evaluate("   ")
-        with self.assertRaises(ValueError):
+        with self.assertRaises(ValueError):\
             self.calculator.evaluate("1 + (2 * 3")
-        with self.assertRaises(ValueError):
+        with self.assertRaises(ValueError):\
             self.calculator.evaluate("1 + )")
-        with self.assertRaises(ValueError):
+        with self.assertRaises(ValueError):\
             self.calculator.evaluate("1 (2 + 3)")
-        with self.assertRaises(ValueError):
+        with self.assertRaises(ValueError):\
             self.calculator.evaluate("(1 + 2) 3")
-        with self.assertRaises(ValueError):
+        with self.assertRaises(ValueError):\
             self.calculator.evaluate("2 ^ 3") # Unsupported operator
 
 
@@ -127,18 +127,18 @@ class TestCalculator(unittest.TestCase):
         self.assertTrue(self.calculator.evaluate("10 / 2 + 1 = 6"))
         self.assertTrue(self.calculator.evaluate("  2 +2   = 4")) # Test case for the reported issue
 
-    def test_comparison_operator_errors(self):
-        with self.assertRaises(ValueError):
+    def test_comparison_operator_errors(self):\
+        with self.assertRaises(ValueError):\
             self.calculator.evaluate("2 =")
-        with self.assertRaises(ValueError):
+        with self.assertRaises(ValueError):\
             self.calculator.evaluate("= 2")
-        with self.assertRaises(ValueError):
+        with self.assertRaises(ValueError):\
             self.calculator.evaluate("2 == 2") # Only single '=' for equality check
-        with self.assertRaises(ValueError):
+        with self.assertRaises(ValueError):\
             self.calculator.evaluate("2 + = 4")
-        with self.assertRaises(ValueError):
+        with self.assertRaises(ValueError):\
             self.calculator.evaluate("= 2 + 4")
-        with self.assertRaises(ValueError):
+        with self.assertRaises(ValueError):\
             self.calculator.evaluate("2 + 2 =")
 
 if __name__ == "__main__":
