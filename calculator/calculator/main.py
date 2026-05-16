@@ -1,0 +1,31 @@
+# calculator/main.py
+
+import sys
+from calculator.pkg.calculator import Calculator
+from calculator.pkg.render import format_json_output
+
+
+def main():
+    calculator = Calculator()
+    if len(sys.argv) <= 1:
+        print("Calculator App")
+        print('Usage: python main.py "<expression>"')
+        print('Example: python main.py "3 + 5"')
+        return
+
+    expression = " ".join(sys.argv[1:])
+    try:
+        result = calculator.evaluate(expression)
+        if result is not None:
+            to_print = format_json_output(expression, result)
+            print(to_print)
+        else:
+            print("Error: Expression is empty or contains only whitespace.")
+    except ValueError as e:
+        print(f"Input Error: {e}. Please check your expression for correct operators and operands.")
+    except Exception as e:
+        print(f"An unexpected error occurred: {e}")
+
+
+if __name__ == "__main__":
+    main()

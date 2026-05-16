@@ -18,7 +18,7 @@ from schemas.exceptions import (
     MalformedResponseError,
 )
 
-from config import MAX_ITERATIONS
+from config import MAX_ITERATIONS, WORKING_DIR
 
 parser = argparse.ArgumentParser(description="Chatbot")
 parser.add_argument("user_prompt", type=str, help="User prompt")
@@ -75,7 +75,7 @@ def get_function_call_response_content(response, verbose: bool) -> list[types.Pa
 
     function_results = []
     for call in response.function_calls:
-        function_call_result = call_function(call)
+        function_call_result = call_function(WORKING_DIR, call, verbose)
 
         if not function_call_result.parts:
             raise MalformedResponseError(
