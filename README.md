@@ -12,6 +12,7 @@ The base bones of the calculator app were also provided as part of this course; 
 ├── calculator/  # vibe-coded app and FastAPI front-end, see docs in this folder for details on how to run
 ├── functions/  # functions available to the agent + mechanism to call them.  TODO: cleanup, set up a registry
 ├── schemas/  # agent types and exceptions.
+├── tests/  # unit tests for agent functions
 ├── main.py
 ├── config.py  # global parameters for the agent
 ├── prompts.py  # starter prompt
